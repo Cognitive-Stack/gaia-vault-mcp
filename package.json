@@ -1,21 +1,38 @@
 {
   "name": "gaia-vault-mcp",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "Azure Blob Storage MCP server for AI assistants",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "gaia-vault-mcp": "dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "dev": "tsx src/index.ts",
     "build": "tsc",
     "start": "node dist/index.js",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage"
+    "test:coverage": "jest --coverage",
+    "prepare": "npm run build"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "keywords": [
+    "mcp",
+    "azure",
+    "blob-storage",
+    "ai",
+    "claude"
+  ],
+  "author": "Hieu TRAN @ Cognitive Stack",
+  "license": "MIT",
   "dependencies": {
     "@azure/storage-blob": "^12.27.0",
+    "dotenv": "^16.0.0",
     "fastmcp": "^1.21.0"
   },
   "devDependencies": {
@@ -25,5 +42,8 @@
     "ts-jest": "^29.3.2",
     "tsx": "^4.19.3",
     "typescript": "^5.8.3"
+  },
+  "engines": {
+    "node": ">=20.0.0"
   }
 }
