@@ -1,9 +1,9 @@
 {
   "name": "gaia-vault-mcp",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Azure Blob Storage MCP server for AI assistants",
   "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "type": "commonjs",
   "bin": {
     "gaia-vault-mcp": "dist/index.js"
   },

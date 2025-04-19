@@ -1,3 +1,5 @@
+"use strict";
+
 import { z } from "zod";
 import uploadBlob from "../tools/upload-blob";
 import downloadBlob from "../tools/download-blob";

@@ -1,3 +1,6 @@
+#!/usr/bin/env node
+"use strict";
+
 import { FastMCP } from "fastmcp";
 import { tools } from "./services/tools";
 import { Tool } from "./types/tools";

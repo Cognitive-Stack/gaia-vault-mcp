@@ -1,3 +1,5 @@
+"use strict";
+
 import { BlobServiceClient } from "@azure/storage-blob";
 import * as fs from "fs";
 import * as path from "path";

@@ -1,3 +1,5 @@
+"use strict";
+
 import { BlobServiceClient } from "@azure/storage-blob";
 import { getAzureConfig } from "../config/env";
 
