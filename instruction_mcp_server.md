@@ -41,7 +41,7 @@ npm install -D typescript tsx @types/node jest ts-jest @types/jest
   "version": "1.0.0",
   "description": "Your MCP Server Description",
   "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "type": "commonjs",
   "bin": {
     "your-mcp-server": "dist/index.js"
   },
@@ -94,7 +94,8 @@ module.exports = {
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "noEmit": false
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist", "**/*.test.ts"]
@@ -105,6 +106,8 @@ module.exports = {
 
 ### Types (src/types/tools.ts)
 ```typescript
+"use strict";
+
 import { z } from "zod";
 import { FastMCP } from "fastmcp";
 
@@ -120,6 +123,8 @@ export type Tool = FastMCP["addTool"];
 
 ### Configuration (src/config/env.ts)
 ```typescript
+"use strict";
+
 export const getConfig = () => {
   const requiredVar = process.env.REQUIRED_VARIABLE;
   if (!requiredVar) {
@@ -131,6 +136,8 @@ export const getConfig = () => {
 
 ### Tool Implementation (src/tools/example-tool.ts)
 ```typescript
+"use strict";
+
 import { getConfig } from "../config/env";
 
 export default async (
@@ -157,6 +164,8 @@ export default async (
 
 ### Tool Registration (src/services/tools.ts)
 ```typescript
+"use strict";
+
 import { z } from "zod";
 import exampleTool from "../tools/example-tool";
 import { ToolConfig } from "../types/tools";
@@ -183,6 +192,9 @@ export const tools: ToolConfig[] = [
 
 ### Server Entry Point (src/index.ts)
 ```typescript
+#!/usr/bin/env node
+"use strict";
+
 import { FastMCP } from "fastmcp";
 import { tools } from "./services/tools";
 import { Tool } from "./types/tools";
@@ -219,6 +231,8 @@ if (transportType === "sse") {
 
 ### Example Test (src/tools/__tests__/example-tool.test.ts)
 ```typescript
+"use strict";
+
 import exampleTool from "../example-tool";
 
 jest.mock("../../config/env", () => ({
